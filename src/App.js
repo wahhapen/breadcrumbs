@@ -1,60 +1,42 @@
 import React, { Component } from 'react';
-import {Breadcrumbs} from './components/Breadcrumbs';
 import './App.css';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
-class Quisque extends Component {
-  render() {
-    return (
-      <Breadcrumbs />
-    )
-  }
-}
-class Odio extends Component {
-  render() {
-    return (
-      <Breadcrumbs />
-    )
-  }
-}
-class Eleifend extends Component {
-  render() {
-    return (
-      <Breadcrumbs />
-    )
-  }
-}
-class Scelerisque extends Component {
-  render() {
-    return (
-      <Breadcrumbs />
-    )
-  }
-}
 
-const Routes = () => (
-  <Router>
-    <nav>
-          <Route path="/quisque" component={Quisque} />
-          <Route path="/odio" component={Odio} />
-          <Route path="/eleifend" component={Eleifend} />
-          <Route path="/scelerisque" component={Scelerisque} />
-        <ul>
-          <li><Link to="/quisque">Quisque</Link></li>
-          <li><Link to="/odio">Odio</Link></li>
-          <li><Link to="/eleifend">Eleifend</Link></li>
-          <li><Link to="/scelerisque">Scelerisque</Link></li>
+const BreadcrumbsItem = ({ match }) => { console.log(match); return(
+
+    <li>
+      <Link to={match.url || ''} className={match.isExact ? 'breadcrumbs__item breadcrumbs__item--active' : 'breadcrumbs__item'}>
+        {match.params.path}
+      </Link>
+      <ul><Route path={`${match.url}/:path`} component={BreadcrumbsItem} /></ul>
+    </li>
+)}
+
+
+const Breadcrumbs = (props) => (
+    <nav className="breadcrumbs">
+        <ul className='breadcrumbs__list'>
+            <Route path='/:path' component={BreadcrumbsItem} />
         </ul>
     </nav>
-  </Router>
-);
-
+)
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Routes />
+        <Breadcrumbs/>
+        <ul className='breadcrumbs__list'>
+          <li>
+          <Link to="/quisque">Quisque</Link> <span> >> </span></li>
+          <li>
+          <Link to="/quisque/odio">Odio</Link> <span> >> </span></li>
+          <li>
+          <Link to="/quisque/odio/eleifend">Eleifend</Link> <span> >> </span></li>
+          <li>
+          <Link to="/quisque/odio/eleifend/scelerisque">Scelerisque</Link></li>
+        </ul>
       </div>
     );
   }
