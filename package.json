@@ -2,6 +2,7 @@
   "name": "bread-app",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://wahhapen.github.io/breadcrumbs",
   "dependencies": {
     "auto-breadcrumb": "^1.0.0",
     "react": "^15.5.4",
@@ -17,6 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build && react-snapshot",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
