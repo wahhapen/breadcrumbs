@@ -4,20 +4,20 @@ export const routes = [
   {
     component: Quisque,
     name: 'Quisque',
-    path: '/',
+    path: '/breadcrumbs',
     routes: [
       {
-        path: '/odio',
+        path: '/breadcrumbs/odio',
         name: 'Odio',
         component: Odio,
         routes: [
           {
-            path: '/odio/eleifend',
+            path: '/breadcrumbs/odio/eleifend',
             name: 'Eleifend',
             component: Eleifend,
             routes: [
               {
-                path: '/odio/eleifend/scelerisque',
+                path: '/breadcrumbs/odio/eleifend/scelerisque',
                 name: 'Scelerisque',
                 component: Scelerisque
               }

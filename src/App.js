@@ -15,17 +15,17 @@ class App extends Component {
         <Breadcrumbs routes={displayRoutes}/>
 
         <ul className='links__list'>
-          <li><Link to="">Quisque</Link></li>
-          <li><Link to="/odio">Odio</Link></li>
-          <li><Link to="/odio/eleifend">Eleifend</Link></li>
-          <li><Link to="/odio/eleifend/scelerisque">Scelerisque</Link></li>
+          <li><Link to="/breadcrumbs">Quisque</Link></li>
+          <li><Link to="/breadcrumbs/odio">Odio</Link></li>
+          <li><Link to="/breadcrumbs/odio/eleifend">Eleifend</Link></li>
+          <li><Link to="/breadcrumbs/odio/eleifend/scelerisque">Scelerisque</Link></li>
         </ul>
 
         <Switch>
-          <Route exact path="/" component={Quisque}/>
-          <Route exact path="/odio/" component={Odio}/>
-          <Route exact path="/odio/eleifend" component={Eleifend}/>
-          <Route exact path="/odio/eleifend/scelerisque" component={Scelerisque}/>
+          <Route exact path="/breadcrumbs" component={Quisque}/>
+          <Route exact path="/breadcrumbs/odio/" component={Odio}/>
+          <Route exact path="/breadcrumbs/odio/eleifend" component={Eleifend}/>
+          <Route exact path="/breadcrumbs/odio/eleifend/scelerisque" component={Scelerisque}/>
           <Route component={NoMatch}/>
         </Switch>
       </div>
